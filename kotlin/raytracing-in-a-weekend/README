@@ -1,0 +1,4 @@
+To run in cmd:
+
+cd raytracing-in-a-weekend/src/main/kotlin
+kotlinc main.kt -include-runtime -d main.jar && java -jar main.jar > image.ppm

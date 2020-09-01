@@ -1,6 +1,3 @@
-import kotlin.math.floor
-
-// args: Array<String>
 fun main() {
     val imageWidth = 256
     val imageHeight = 256

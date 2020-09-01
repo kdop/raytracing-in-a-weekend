@@ -10,6 +10,7 @@ fun main() {
     println("255")
 
     for (j in imageHeight - 1 downTo 0 step 1) {
+        println("Scanlines remaining: $j")
         for (i in 0 until imageWidth step 1) {
             val r = i.toDouble() / (imageWidth - 1)
             val g = j.toDouble() / (imageHeight - 1)

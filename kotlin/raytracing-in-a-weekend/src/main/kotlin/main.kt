@@ -1,12 +1,18 @@
+import java.io.File
+
+const val OUTPUT_IMAGE_PATH = "image.ppm"
+
 class MainClass {
     companion object {
         @JvmStatic fun main(args: Array<String>) {
             val imageWidth = 256
             val imageHeight = 256
 
-            println("P3")
-            println("$imageWidth $imageHeight")
-            println("255")
+            val output = StringBuilder()
+
+            output.appendLine("P3")
+            output.appendLine("$imageWidth $imageHeight")
+            output.appendLine("255")
 
             for (j in imageHeight - 1 downTo 0 step 1) {
                 println("Scan lines remaining: $j")
@@ -16,10 +22,13 @@ class MainClass {
                             j.toDouble() / (imageHeight - 1),
                             0.25
                     )
-
-                    writeColor(pixelColor)
+                    val colorString = writeColor(pixelColor)
+                    println(colorString)
+                    output.appendLine(colorString)
                 }
             }
+
+            File(OUTPUT_IMAGE_PATH).writeText(output.toString())
         }
     }
 }

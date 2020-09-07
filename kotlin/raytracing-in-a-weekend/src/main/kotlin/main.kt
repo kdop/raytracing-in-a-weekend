@@ -30,8 +30,8 @@ class MainClass {
             for (j in imageHeight - 1 downTo 0 step 1) {
                 println("Scan lines remaining: $j")
                 for (i in 0 until imageWidth step 1) {
-                    val u = i.toDouble() / (imageWidth - 1)
-                    val v = j.toDouble() / (imageHeight - 1)
+                    val u = i.toDouble() / (imageWidth - 1)  // 0.0..1.0
+                    val v = j.toDouble() / (imageHeight - 1)  // 1.0..0.0
 
                     val r = Ray(origin, lowerLeftCorner + u * horizontal + v * vertical - origin)
                     val pixelColor = rayColor(r)

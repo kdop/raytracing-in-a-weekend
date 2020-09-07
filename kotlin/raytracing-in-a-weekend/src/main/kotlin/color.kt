@@ -10,6 +10,10 @@ fun translateColor(pixelColor: Color): String {
 }
 
 fun rayColor(r: Ray): Color {
+    if (hitSphere(Point3(0.0,0.0,-1.0), 0.5, r)) {
+        return Color(1.0, 0.0, 0.0)
+    }
+
     val unitDirection = unitVector(r.direction())
     val t = 0.5 * (unitDirection.y() + 1.0)
 
